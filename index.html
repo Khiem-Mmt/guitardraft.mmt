@@ -2,17 +2,32 @@
 <html>
 <body style="background-color: black;"> <!-- change the background color of the body element -->
 
-<img id="myImage" onclick="playSound()" src="guitar.jpg" width="600" height="800" style="display: block; margin-left: auto; margin-right: auto;"> <!-- center the image by setting the display and margin properties -->
+<div style="text-align: center;"> <img id="myImage" src="guitar.jpg" width="600" height="800" 
+</div>
+style="float: left;"> <!-- remove the onclick attribute from the image and add a float style --> 
+
+<button id="myButton" onclick="playPause()">Play</button> <!-- create a button element with an onclick attribute and a text content -->
 
 <audio id="mySound" src="guitar_audio.mp3">
 <p>If you are reading this, it is because your browser does not support the audio element.</p>
 </audio>
 
 <script>
-function playSound() {
-  var sound = document.getElementById("mySound");
-  sound.play();
+var sound = document.getElementById("mySound"); // get the audio element by id
+var button = document.getElementById("myButton"); // get the button element by id
+var isPlaying = false; // create a variable to store the audio state
+
+function playPause() {
+  if (isPlaying) { // if the audio is playing
+    sound.pause(); // pause the audio
+    button.textContent = "Play"; // change the button text to "Play"
+  } else { // if the audio is paused
+    sound.play(); // play the audio
+    button.textContent = "Pause"; // change the button text to "Pause"
+  }
+  isPlaying = !isPlaying; // toggle the audio state
 }
 </script>
 
 </body>
+</html>
