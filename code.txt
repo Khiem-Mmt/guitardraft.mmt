@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: black;"> <!-- change the background color of the body element -->
+
+<img id="myImage" onclick="playSound()" src="guitar.jpg" width="600" height="800" style="display: block; margin-left: auto; margin-right: auto;"> <!-- center the image by setting the display and margin properties -->
+
+<audio id="mySound" src="guitar_audio.mp3">
+<p>If you are reading this, it is because your browser does not support the audio element.</p>
+</audio>
+
+<script>
+function playSound() {
+  var sound = document.getElementById("mySound");
+  sound.play();
+}
+</script>
+
+</body>
